@@ -1,0 +1,19 @@
+
+mkcdir()
+{
+    if [[ $# -eq 1 ]]
+    then
+        mkdir -p $1 && cd $1
+    else
+        echo "Usage: mkcdir {arg}"
+    fi
+}
+
+mmkdir()
+{
+    for i in $@
+    do
+        mkdir -p $i
+    done
+}
+
