@@ -65,17 +65,16 @@ vvgrep()
    exec 3>&1
    result=$(dialog --menu "Please select the file" 0 0 0 "${args[@]}" 2>&1 1>&3)
    exitcode=$?
-   open_vim "$result"
+   [[ $exitcode -eq 0 ]] && open_vim "$result"
 
-   while true
+   while [[ $exitcode -eq 0 ]]
    do
       result=$(dialog --default-item "$result" --menu "Please select the file" 0 0 0 "${args[@]}" 2>&1 1>&3)
       exitcode=$?
-      [[ $exitcode -ne 0 ]] && break
-      open_vim "$result"
+      [[ $exitcode -eq 0 ]] && open_vim "$result"
    done
-
    exec 3>&-
+   clear
 }
 
 
