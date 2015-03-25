@@ -77,6 +77,11 @@ vvgrep()
    clear
 }
 
+update_path()
+{
+   local IFS=':'
+   export PATH="$PATH:$*"
+}
 
 #To run probcli from sources:
 alias probsli='rlwrap sicstus -l $PROB_SOURCE_DIR/prob_cli.pl --goal "go_cli." -a'
