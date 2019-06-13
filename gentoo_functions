@@ -1,7 +1,12 @@
 alias gentoo-update='sudo layman -S; sudo emerge --sync'
-alias gentoo-upgrade='sudo emerge --update --deep --with-bdeps=y --newuse --ask --verbose @world'
+alias gentoo-upgrade='sudo mount -o remount,size=12G /var/tmp/portage; sudo emerge --update --deep --with-bdeps=y --newuse --ask --verbose @world; sudo mount -o remount,size=2G /var/tmp/portage'
 
 accept_keyword() {
 	echo "$1 ~amd64" | sudo tee -a /etc/portage/package.accept_keywords
 	sudo sort -u /etc/portage/package.accept_keywords -o /etc/portage/package.accept_keywords
+}
+
+accept_x86_32() {
+	echo "$1 abi_x86_32" | sudo tee -a /etc/portage/package.use/x86_32
+	sudo sort -u /etc/portage/package.use/x86_32 -o /etc/portage/package.use/x86_32
 }
