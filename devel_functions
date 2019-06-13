@@ -83,16 +83,3 @@ update_path()
    export PATH="$PATH:$*"
 }
 
-#To run probcli from sources:
-alias probsli='rlwrap sicstus -l $PROB_SOURCE_DIR/prob_cli.pl --goal "go_cli." -a'
-
-#To run probcli with the REPL from sources:
-#alias seval='cd $NEWPROBDIR; rlwrap sicstus -l $PROB_SOURCE_DIR/prob_cli.pl --goal "go_cli." -a -repl -init -p WARN_WHEN_EXPANDING_INFINITE_CLOSURES 0 -p CLPFD TRUE'
-
-#To run ProB Tcl/Tk from sources:
-alias prob='cd $PROB_SOURCE_DIR; unlimit; sics -Dprob_profile=true -l $PROB_SOURCE_DIR/prob_tcltk.pl --goal "go."'
-
-#To run the ProB Test REPL from sources:
-#alias test='cd $PROB_SOURCE_DIR/..; rlwrap sicstus -Dprob_safe_mode=true -l $PROB_SOURCE_DIR/test_runner.pl --goal "test_repl."'
-
-
