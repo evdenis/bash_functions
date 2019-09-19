@@ -1,5 +1,5 @@
-alias gentoo-update='sudo layman -S; sudo emerge --sync'
-alias gentoo-upgrade='sudo mount -o remount,size=12G /var/tmp/portage; sudo emerge --update --deep --with-bdeps=y --newuse --ask --verbose @world; sudo mount -o remount,size=2G /var/tmp/portage'
+alias gentoo-update='sudo bash -c "layman -S; emerge --sync"'
+alias gentoo-upgrade='sudo bash -c "mount -o remount,size=12G /var/tmp/portage; emerge --update --deep --with-bdeps=y --newuse --ask --verbose --keep-going @world; mount -o remount,size=2G /var/tmp/portage"'
 alias gentoo-clean-elogs='sudo rm -f /var/log/portage/elog/*'
 
 accept_keyword() {
