@@ -7,7 +7,7 @@ alias gentoo-rebuild-world='emerge --ask --verbose --emptytree --usepkg=n --keep
 
 accept_keyword() {
 	echo "$1 ~amd64" | sudo tee -a /etc/portage/package.accept_keywords
-	sudo sort -u /etc/portage/package.accept_keywords -o /etc/portage/package.accept_keywords
+	sudo sort -u /etc/portage/package.accept_keywords -o /etc/portage/package.accept_keywords/default
 }
 
 accept_x86_32() {
